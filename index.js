@@ -18,7 +18,7 @@ app.get('/', async (req, res) => {
       <div style="font-family: sans-serif; padding: 2rem; text-align: center;">
         <h1 style="color: #00e599;">Neon Database Connected Successfully! 🎉</h1>
         <p><strong>Database Version:</strong> ${dbVersion}</p>
-        <p>This is a live web application connected to your Neon Serverless Postgres Database.</p>
+        <p>This is a live web application connected to your Neon Serverless Postgres Database via Vercel.</p>
       </div>
     `);
   } catch (error) {
@@ -32,6 +32,11 @@ app.get('/', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
-});
+// Start server locally, but export for Vercel
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(port, () => {
+    console.log(`Server is running at http://localhost:${port}`);
+  });
+}
+
+module.exports = app;
