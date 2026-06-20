@@ -1,0 +1,13 @@
+{
+  "name": "neon-database-example",
+  "version": "1.0.0",
+  "description": "Example code for connecting to Neon serverless Postgres",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^0.9.0",
+    "dotenv": "^16.4.5"
+  }
+}
